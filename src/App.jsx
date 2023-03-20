@@ -1,18 +1,19 @@
-import React, { useState } from 'react';
-import { FullBodyContainer } from './App.styled';
-import { HeaderComponent } from './components/Header';
-import { TableCard } from './components/TableCard';
-import products from './services/products.json';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import RestaurantContextProvider from './contexts/RestaurantContext';
+import IndexPage from './pages/IndexPage';
+import TablePage from './pages/TablePage';
 
 function App() {
-  const [tableList, setTableList] = useState(products);
-
   return (
-    <FullBodyContainer>
-      <HeaderComponent />
-
-      <TableCard comanda={tableList[0]} />
-    </FullBodyContainer>
+    <RestaurantContextProvider>
+      <Router>
+        <Routes>
+          <Route path='/' element={<IndexPage />} />
+          <Route path='/:nomedamesa' element={<TablePage />} />
+        </Routes>
+      </Router>
+    </RestaurantContextProvider>
   );
 }
 

@@ -1,7 +1,6 @@
 [
   {
     "title": "Mesa 1",
-    "nome": "Nome",
     "itens": [
       {
         "nome": "Frango a passarinho",
@@ -125,7 +124,7 @@
     ]
   },
   {
-    "title": "Mesa 90",
+    "title": "Mesa 9",
     "nome": "Nome",
     "itens": [
       {

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import styled from 'styled-components';
 import { MdDinnerDining } from 'react-icons/md';
 import React from 'react';
@@ -25,6 +26,11 @@ const TableCardStyled = styled.div`
       font-size: 25px;
       color: orangered;
     }
+
+    .table_card_icon.empty_bill {
+      color: grey;
+    }
+
     .table_card_name {
       font-size: 20px;
     }
@@ -46,6 +52,10 @@ const TableCardStyled = styled.div`
       font-weight: 600;
       color: #00bb00;
     }
+
+    .price_card_value.empty_bill {
+      color: black;
+    }
   }
 
   &:hover {
@@ -59,12 +69,18 @@ export const TableCard = ({ comanda }) => {
   return (
     <TableCardStyled comanda={comanda}>
       <div className='table_card_div'>
-        <MdDinnerDining className='table_card_icon' />
+        <MdDinnerDining
+          className={`table_card_icon ${totalBillPrice(comanda.itens) === 0 ? 'empty_bill' : ''} `}
+        />
         <h2 className='table_card_name'>{comanda?.title}</h2>
       </div>
       <div className='price_card_div'>
         <h6 className='price_card_text'>Total:</h6>
-        <h6 className='price_card_value'>R$ {totalBillPrice(comanda.itens).toFixed(2)}</h6>
+        <h6
+          className={`price_card_value ${totalBillPrice(comanda.itens) === 0 ? 'empty_bill' : ''} `}
+        >
+          R$ {totalBillPrice(comanda.itens).toFixed(2)}
+        </h6>
       </div>
     </TableCardStyled>
   );

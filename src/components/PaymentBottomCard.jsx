@@ -15,6 +15,20 @@ const BottomCardDiv = styled.div`
 
   input {
     margin-right: 10px;
+    font-size: 1.2rem;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid black;
+  }
+
+  .submit_button {
+    font-size: 1.2rem;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #4d7aa1;
+    color: #fff;
+    border: 2px double #fff;
+    cursor: pointer;
   }
 `;
 

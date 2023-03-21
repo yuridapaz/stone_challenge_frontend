@@ -5,7 +5,6 @@ import PaymentBottomCard from '../components/PaymentBottomCard';
 import { TableBillItem } from '../components/TableBillItem';
 import { RestaurantContext } from '../contexts/RestaurantContext';
 import { IoMdArrowBack } from 'react-icons/io';
-
 import {
   TableBillCard,
   TablePageBillContainer,
@@ -25,19 +24,16 @@ const TablePage = () => {
       return tab.itens;
     });
   //
+
   const valorTotalDaConta = totalBillPrice(currentTableBill);
-
   const [valorPago, setValorPago] = useState(0);
-
   const [faltaPagar, setFaltaPagar] = useState(Number(valorTotalDaConta));
-
   const [inputValue, setInputValue] = useState(0);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (valorPago === Number(valorTotalDaConta)) {
-      console.log('conta chegou ao maximo do pagamento');
       return;
     }
 
@@ -46,14 +42,10 @@ const TablePage = () => {
     });
 
     setValorPago((prev) => {
-      return prev + Number(inputValue);
+      return prev + inputValue;
     });
 
     setInputValue(0);
-  };
-
-  const handleChange = (e) => {
-    setInputValue(e.target.value);
   };
 
   return (
@@ -64,38 +56,48 @@ const TablePage = () => {
         </Link>
         <h2 className='tablePage_header_title'>{nomedamesa}</h2>
       </TablePageHeader>
-      <TablePageBillContainer>
-        <TableBillCard>
-          {currentTableBill.map((bill, i) => {
-            return <TableBillItem tablebill={bill} key={i} />;
-          })}
-          <div className='payment_info_item'>
-            <p>Total a pagar:</p>
-            <span>R$ {valorTotalDaConta.toFixed(2)}</span>
-          </div>
-          <div className='payment_info_item'>
-            <p>Total pago:</p>
-            <span>R$ {valorPago.toFixed(2)}</span>
-          </div>
-          <div className='payment_info_item'>
-            <p>Faltar pagar:</p>
-            <span>R$ {faltaPagar.toFixed(2)}</span>
-          </div>
-        </TableBillCard>
-      </TablePageBillContainer>
-      <PaymentBottomCard>
-        <form action='' onSubmit={handleSubmit}>
-          <input
-            type='number'
-            step='0.01'
-            min='0'
-            max={faltaPagar}
-            onChange={handleChange}
-            value={inputValue}
-          />
-          <button type='submit'>Adicionar Pagamento</button>
-        </form>
-      </PaymentBottomCard>
+      {currentTableBill.length > 0 ? (
+        <>
+          <TablePageBillContainer>
+            <TableBillCard>
+              {currentTableBill.map((billItem, i) => {
+                return <TableBillItem tablebill={billItem} key={i} />;
+              })}
+              <div className='payment_info_item'>
+                <p>Total a pagar:</p>
+                <span>R$ {valorTotalDaConta.toFixed(2)}</span>
+              </div>
+              <div className='payment_info_item'>
+                <p>Total pago:</p>
+                <span>R$ {valorPago.toFixed(2)}</span>
+              </div>
+              <div className='payment_info_item'>
+                <p>Faltar pagar:</p>
+                <span>R$ {faltaPagar.toFixed(2)}</span>
+              </div>
+            </TableBillCard>
+          </TablePageBillContainer>
+          <PaymentBottomCard>
+            <form action='' onSubmit={handleSubmit}>
+              <input
+                type='number'
+                step='0.01'
+                min='0'
+                max={faltaPagar}
+                onChange={(e) => setInputValue(Number(e.target.value))}
+                value={inputValue}
+              />
+              <button type='submit' className='submit_button'>
+                Adicionar Pagamento
+              </button>
+            </form>
+          </PaymentBottomCard>
+        </>
+      ) : (
+        <TablePageBillContainer>
+          <h1>Mesa fechada!</h1>
+        </TablePageBillContainer>
+      )}
     </TablePageStyled>
   );
 };

@@ -1,20 +1,23 @@
 import styled from 'styled-components';
 
 export const FullBodyContainer = styled.div`
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   background-color: #fafafa;
-  padding-bottom: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const IndexPageHeader = styled.div`
-  background-color: #4d7aa1;
   width: 100%;
   max-width: 500px;
   padding: 10px 15px;
+  color: #fff;
+  background-color: #4d7aa1;
 
   .title {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     text-align: center;
   }
 `;
@@ -22,19 +25,19 @@ export const IndexPageHeader = styled.div`
 export const InputStyle = styled.input`
   width: 100%;
   max-width: 500px;
-  padding: 12px 15px;
+  font-size: 1rem;
+  padding: 12px;
   border: 1px solid antiquewhite;
-  letter-spacing: 3px;
 `;
 
 export const CardContainer = styled.div`
   max-width: 500px;
+  height: 100%;
   padding: 0.5rem;
-  margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  overflow: hidden;
+  overflow: auto;
 
   .link_class {
     text-decoration: none;

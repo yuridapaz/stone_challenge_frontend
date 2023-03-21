@@ -3,6 +3,10 @@ import styled from 'styled-components';
 export const TablePageStyled = styled.div`
   width: 100vw;
   min-height: 100vh;
+  padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: aliceblue;
 `;
 
@@ -39,11 +43,15 @@ export const TablePageBillContainer = styled.div`
   max-width: 500px;
   height: 100%;
   padding: 2rem 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const TableBillCard = styled.div`
   padding: 30px;
   background-color: beige;
+  flex: 1;
 
   .payment_info_item {
     padding: 5px 0;

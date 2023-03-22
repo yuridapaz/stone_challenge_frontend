@@ -5,11 +5,12 @@ import { Link } from 'react-router-dom';
 import { RestaurantContext } from '../contexts/RestaurantContext';
 
 function IndexPage() {
+  // @ts-ignore
   const { tableList } = React.useContext(RestaurantContext);
   const [query, setQuery] = useState('');
 
-  const filteredTables = tableList.filter((tab) => {
-    return tab.title.toLowerCase().includes(query.toLocaleLowerCase());
+  const filteredTables = tableList.filter((table) => {
+    return table.title.toLowerCase().includes(query.toLocaleLowerCase());
   });
 
   return (
@@ -22,7 +23,7 @@ function IndexPage() {
         {filteredTables.map((table, i) => {
           return (
             <Link className='link_class' key={i} to={table.title}>
-              <TableCard comanda={table} />
+              <TableCard tab={table} />
             </Link>
           );
         })}

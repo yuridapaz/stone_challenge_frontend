@@ -11,37 +11,27 @@ import {
   TablePageHeader,
   TablePageStyled,
 } from './TablePage.styled';
+import CalculateBillAmount from '../utils/CalculateBillAmount';
 
 const TablePage = () => {
-  const { tableList, totalBillPrice } = React.useContext(RestaurantContext);
-  const { nomedamesa } = useParams();
-  //
-  const [currentTableBill] = tableList
-    .filter((tab) => {
-      return tab.title === nomedamesa;
-    })
-    .map((tab) => {
-      return tab.itens;
-    });
-  //
+  // @ts-ignore
+  const { tableList } = React.useContext(RestaurantContext);
+  const { tabletitle } = useParams();
+  const currentTableBill = tableList.find((tab) => tab.title === tabletitle)['itens'];
 
-  const valorTotalDaConta = totalBillPrice(currentTableBill);
-  const [valorPago, setValorPago] = useState(0);
-  const [faltaPagar, setFaltaPagar] = useState(Number(valorTotalDaConta));
+  const totalBillAmount = CalculateBillAmount(currentTableBill);
+  const [amountPaid, setAmountPaid] = useState(0);
   const [inputValue, setInputValue] = useState(0);
+  const amountToBePaid = totalBillAmount - amountPaid;
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (valorPago === Number(valorTotalDaConta)) {
+    if (amountPaid === totalBillAmount) {
       return;
     }
 
-    setFaltaPagar((prev) => {
-      return prev - inputValue;
-    });
-
-    setValorPago((prev) => {
+    setAmountPaid((prev) => {
       return prev + inputValue;
     });
 
@@ -54,26 +44,26 @@ const TablePage = () => {
         <Link to={'/'}>
           <IoMdArrowBack className='tablePage_header_icon' />
         </Link>
-        <h2 className='tablePage_header_title'>{nomedamesa}</h2>
+        <h2 className='tablePage_header_title'>{tabletitle}</h2>
       </TablePageHeader>
       {currentTableBill.length > 0 ? (
         <>
           <TablePageBillContainer>
             <TableBillCard>
-              {currentTableBill.map((billItem, i) => {
-                return <TableBillItem tablebill={billItem} key={i} />;
+              {currentTableBill.map((tabItem, i) => {
+                return <TableBillItem tabItem={tabItem} key={i} />;
               })}
               <div className='payment_info_item'>
                 <p>Total a pagar:</p>
-                <span>R$ {valorTotalDaConta.toFixed(2)}</span>
+                <span>R$ {totalBillAmount.toFixed(2)}</span>
               </div>
               <div className='payment_info_item'>
                 <p>Total pago:</p>
-                <span>R$ {valorPago.toFixed(2)}</span>
+                <span>R$ {amountPaid.toFixed(2)}</span>
               </div>
               <div className='payment_info_item'>
                 <p>Faltar pagar:</p>
-                <span>R$ {faltaPagar.toFixed(2)}</span>
+                <span>R$ {amountToBePaid.toFixed(2)}</span>
               </div>
             </TableBillCard>
           </TablePageBillContainer>
@@ -83,7 +73,7 @@ const TablePage = () => {
                 type='number'
                 step='0.01'
                 min='0'
-                max={faltaPagar}
+                max={amountToBePaid}
                 onChange={(e) => setInputValue(Number(e.target.value))}
                 value={inputValue}
               />

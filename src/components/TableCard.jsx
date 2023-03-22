@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 import { MdDinnerDining } from 'react-icons/md';
 import React from 'react';
-import { RestaurantContext } from '../contexts/RestaurantContext';
+import CalculateBillAmount from '../utils/CalculateBillAmount';
 
 const TableCardStyled = styled.div`
   width: 180px;
@@ -63,23 +63,23 @@ const TableCardStyled = styled.div`
   }
 `;
 
-export const TableCard = ({ comanda }) => {
-  const { totalBillPrice } = React.useContext(RestaurantContext);
-
+export const TableCard = ({ tab }) => {
   return (
-    <TableCardStyled comanda={comanda}>
+    <TableCardStyled tab={tab}>
       <div className='table_card_div'>
         <MdDinnerDining
-          className={`table_card_icon ${totalBillPrice(comanda.itens) === 0 ? 'empty_bill' : ''} `}
+          className={`table_card_icon ${CalculateBillAmount(tab.itens) === 0 ? 'empty_bill' : ''} `}
         />
-        <h2 className='table_card_name'>{comanda?.title}</h2>
+        <h2 className='table_card_name'>{tab.title}</h2>
       </div>
       <div className='price_card_div'>
         <h6 className='price_card_text'>Total:</h6>
         <h6
-          className={`price_card_value ${totalBillPrice(comanda.itens) === 0 ? 'empty_bill' : ''} `}
+          className={`price_card_value ${
+            CalculateBillAmount(tab.itens) === 0 ? 'empty_bill' : ''
+          } `}
         >
-          R$ {totalBillPrice(comanda.itens).toFixed(2)}
+          R$ {CalculateBillAmount(tab.itens)}
         </h6>
       </div>
     </TableCardStyled>

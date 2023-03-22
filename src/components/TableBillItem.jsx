@@ -25,16 +25,16 @@ export const TablePageBillItemStyled = styled.div`
   }
 `;
 
-export const TableBillItem = ({ tablebill }) => {
+export const TableBillItem = ({ tabItem }) => {
   return (
     <TablePageBillItemStyled>
       <div className='name_div'>
-        <p> {tablebill.nome} </p>
+        <p> {tabItem.nome} </p>
       </div>
       <div className='valores_div'>
-        <p>Qtd: {tablebill.quantidade} </p>
-        <p> R${tablebill.valor.toFixed(2)} </p>
-        <p> R${(tablebill.valor * tablebill.quantidade).toFixed(2)} </p>
+        <p>Qtd: {tabItem.quantidade} </p>
+        <p> R${tabItem.valor.toFixed(2)} </p>
+        <p> R${(tabItem.valor * tabItem.quantidade).toFixed(2)} </p>
       </div>
     </TablePageBillItemStyled>
   );

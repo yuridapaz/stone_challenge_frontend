@@ -79,7 +79,7 @@ export const TableCard = ({ tab }) => {
             CalculateBillAmount(tab.itens) === 0 ? 'empty_bill' : ''
           } `}
         >
-          R$ {CalculateBillAmount(tab.itens)}
+          R$ {CalculateBillAmount(tab.itens).toFixed(2)}
         </h6>
       </div>
     </TableCardStyled>

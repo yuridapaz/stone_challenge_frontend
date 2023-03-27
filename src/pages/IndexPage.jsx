@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FullBodyContainer, IndexPageHeader, CardContainer, InputStyle } from './IndexPage.styled';
 import { TableCard } from '../components/TableCard';
-import { Link } from 'react-router-dom';
 import { RestaurantContext } from '../contexts/RestaurantContext';
 
 function IndexPage() {
@@ -9,9 +9,9 @@ function IndexPage() {
   const { tableList } = React.useContext(RestaurantContext);
   const [query, setQuery] = useState('');
 
-  const filteredTables = tableList.filter((table) => {
-    return table.title.toLowerCase().includes(query.toLocaleLowerCase());
-  });
+  const filteredTables = tableList.filter((table) =>
+    table.title.toLowerCase().includes(query.toLocaleLowerCase())
+  );
 
   return (
     <FullBodyContainer>

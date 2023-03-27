@@ -74,6 +74,7 @@ export const TableCard = ({ tab }) => {
       </div>
       <div className='price_card_div'>
         <h6 className='price_card_text'>Total:</h6>
+
         <h6
           className={`price_card_value ${
             CalculateBillAmount(tab.itens) === 0 ? 'empty_bill' : ''

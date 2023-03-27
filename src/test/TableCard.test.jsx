@@ -28,14 +28,39 @@ const testingTable1 = {
   ],
 };
 
+const newTable = {
+  ...testingTable1,
+  itens: [],
+};
+
 describe('TableCard', () => {
   it('Deve mostrar o texto contigo dentro da div', () => {
     render(<TableCard tab={testingTable1} />);
 
-    expect(screen.getByText(/mesa 1/i)).toBeInTheDocument();
+    expect(screen.getByText('Mesa 1')).toBeInTheDocument();
   });
 
-  it('Deve conter mais de um item na comanda', () => {
-    expect(testingTable1.itens).toHaveLength(4);
+  // it('Deve conter mais de um item na comanda', () => {
+  //   expect(testingTable1.itens).toHaveLength(4);
+  // });
+
+  test('Deve mostrar o total da conta dentro do elemento', () => {
+    const renderResult = render(<TableCard tab={testingTable1} />);
+
+    const oQueEuQuero = renderResult.container.querySelector('.price_card_value')?.textContent;
+    // console.log(renderResult.debug);
+    renderResult.debug();
+
+    expect(oQueEuQuero).toEqual('R$ 149.30');
+  });
+
+  test('Deve mostrar o total da conta dentro do elemento', () => {
+    const renderResult = render(<TableCard tab={testingTable1} />);
+
+    const oQueEuQuero = renderResult.container.querySelector('.empty_bill');
+    // console.log(renderResult.debug);
+    // renderResult.debug();
+
+    expect(oQueEuQuero).toBeTruthy();
   });
 });

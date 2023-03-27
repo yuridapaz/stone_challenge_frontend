@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import PaymentBottomCard from '../components/PaymentBottomCard';

@@ -7,6 +7,7 @@ import { RestaurantContext } from '../contexts/RestaurantContext';
 function IndexPage() {
   // @ts-ignore
   const { tableList } = React.useContext(RestaurantContext);
+
   const [query, setQuery] = useState('');
 
   const filteredTables = tableList.filter((table) =>

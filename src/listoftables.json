@@ -26,17 +26,14 @@
   },
   {
     "title": "Mesa 2",
-    "nome": "Nome",
     "itens": []
   },
   {
     "title": "Mesa 3",
-    "nome": "Nome",
     "itens": []
   },
   {
     "title": "Mesa 4",
-    "nome": "Nome",
     "itens": [
       {
         "nome": "Rum Dose",
@@ -57,7 +54,6 @@
   },
   {
     "title": "Mesa 5",
-    "nome": "Nome",
     "itens": [
       {
         "nome": "Cerveja Original",
@@ -68,7 +64,6 @@
   },
   {
     "title": "Mesa 6",
-    "nome": "Nome",
     "itens": [
       {
         "nome": "Fritas",
@@ -94,12 +89,10 @@
   },
   {
     "title": "Mesa 7",
-    "nome": "Nome",
     "itens": []
   },
   {
     "title": "Mesa 8",
-    "nome": "Nome",
     "itens": [
       {
         "nome": "Fritas",
@@ -125,7 +118,6 @@
   },
   {
     "title": "Mesa 9",
-    "nome": "Nome",
     "itens": [
       {
         "nome": "Fritas",
@@ -151,12 +143,10 @@
   },
   {
     "title": "Mesa 10",
-    "nome": "Nome",
     "itens": []
   },
   {
     "title": "Mesa 11",
-    "nome": "Nome",
     "itens": [
       {
         "nome": "Frango a passarinho",
@@ -182,7 +172,6 @@
   },
   {
     "title": "Mesa 12",
-    "nome": "Nome",
     "itens": [
       {
         "nome": "Rum Dose",

@@ -30,7 +30,7 @@ describe('Calculando o valor total da conta', () => {
   });
 });
 
-describe('Calculando o valor total da conta', () => {
+describe('Calculando o valor total da conta 2', () => {
   it('Receber valor total da conta 100', () => {
     console.log(listoftables);
     // console.log(CalculateBillAmount(listoftables[2]['itens']));

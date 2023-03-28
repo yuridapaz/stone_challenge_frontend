@@ -1,14 +1,30 @@
 // @ts-nocheck
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import listoftables from '../listoftables.json';
-
+import RefactoringTableList from '../utils/RefactoringTableList';
 export const RestaurantContext = React.createContext({});
 
 const RestaurantContextProvider = ({ children }) => {
-  // eslint-disable-next-line no-unused-vars
-  const tableList = listoftables;
+  // Criei um estado onde posso fazer a busca da lista no localStorage do browser.
+  const [tableList, setTableList] = useState(() => {
+    // Aqui faço a busca no local storage
+    const data = localStorage.getItem('restaurantTables');
+    // Caso tenha alguma coisa salva no browser será mostrado, caso contrário o estado vai ser iniciado com a lista "tableListRefactored"
+    return data ? JSON.parse(data) : RefactoringTableList(listoftables);
+  });
 
-  return <RestaurantContext.Provider value={{ tableList }}>{children}</RestaurantContext.Provider>;
+  const [listOfClosedTables, setListOfClosedTables] = useState([]);
+
+  useEffect(() => {
+    // Quando o estado "tableList" for modificado ele vai ser salvo no local storage.
+    localStorage.setItem('restaurantTables', JSON.stringify(tableList));
+  }, [tableList]);
+
+  return (
+    <RestaurantContext.Provider value={{ tableList, tableList, setTableList }}>
+      {children}
+    </RestaurantContext.Provider>
+  );
 };
 
 export default RestaurantContextProvider;

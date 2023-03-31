@@ -13,14 +13,13 @@ const RestaurantContextProvider = ({ children }) => {
     return data ? JSON.parse(data) : RefactoringTableList(listoftables);
   });
 
-  const [listOfClosedTables, setListOfClosedTables] = useState([]);
-
   useEffect(() => {
     // Quando o estado "tableList" for modificado ele vai ser salvo no local storage.
     localStorage.setItem('restaurantTables', JSON.stringify(tableList));
   }, [tableList]);
 
   return (
+    // eslint-disable-next-line no-dupe-keys
     <RestaurantContext.Provider value={{ tableList, tableList, setTableList }}>
       {children}
     </RestaurantContext.Provider>

@@ -47,7 +47,6 @@ const TablePage = () => {
       );
       setTableList(newTableList);
     }
-
     setInputValue(0);
   };
 
@@ -82,7 +81,7 @@ const TablePage = () => {
                   R$
                   {currentTable.amountPaid
                     ? (totalBillAmount - CalcaulteAmountPaid(currentTable.amountPaid)).toFixed(2)
-                    : totalBillAmount}
+                    : totalBillAmount.toFixed(2)}
                 </span>
               </div>
             </TableBillCard>
@@ -96,7 +95,7 @@ const TablePage = () => {
                 max={
                   currentTable.amountPaid
                     ? (totalBillAmount - CalcaulteAmountPaid(currentTable.amountPaid)).toFixed(2)
-                    : totalBillAmount
+                    : totalBillAmount.toFixed(2)
                 }
                 onChange={(e) => setInputValue(Number(e.target.value))}
                 value={inputValue}

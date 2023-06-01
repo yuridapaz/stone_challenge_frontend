@@ -20,7 +20,7 @@ const RestaurantContextProvider = ({ children }) => {
 
   return (
     // eslint-disable-next-line no-dupe-keys
-    <RestaurantContext.Provider value={{ tableList, tableList, setTableList }}>
+    <RestaurantContext.Provider value={{ tableList, setTableList }}>
       {children}
     </RestaurantContext.Provider>
   );

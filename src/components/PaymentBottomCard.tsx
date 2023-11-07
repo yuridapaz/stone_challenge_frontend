@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const BottomCardDiv = styled.div`
   width: 100%;

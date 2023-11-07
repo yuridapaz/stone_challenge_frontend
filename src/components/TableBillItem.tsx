@@ -33,12 +33,12 @@ export const TableBillItem = ({ tabItem }: Props) => {
   return (
     <TablePageBillItemStyled>
       <div className='name_div'>
-        <p> {tabItem.name} </p>
+        <p>{tabItem.name}</p>
       </div>
       <div className='valores_div'>
-        <p>Qtd: {tabItem.amount} </p>
-        <p> R${tabItem.price.toFixed(2)} </p>
-        <p> R${(tabItem.price * tabItem.amount).toFixed(2)}</p>
+        <p>Qtd:{tabItem.amount}</p>
+        <p>R${tabItem.price.toFixed(2)}</p>
+        <p>R${(tabItem.price * tabItem.amount).toFixed(2)}</p>
       </div>
     </TablePageBillItemStyled>
   );

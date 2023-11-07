@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+
 import PaymentBottomCard from '../components/PaymentBottomCard';
 import { TableBillItem } from '../components/TableBillItem';
 import {
@@ -7,16 +7,16 @@ import {
   RestaurantContextType,
 } from '../contexts/RestaurantContext';
 import { IoMdArrowBack } from 'react-icons/io';
+import React, { useState } from 'react';
+import CalculateBillAmount from '../utils/CalculateBillAmount';
 import {
   TableBillCard,
   TablePageBillContainer,
   TablePageHeader,
   TablePageStyled,
 } from './TablePage.styled';
-import CalculateBillAmount from '../utils/CalculateBillAmount';
 
 const TablePage = () => {
-  // @ts-ignore
   const { tableList } = React.useContext(
     RestaurantContext
   ) as RestaurantContextType;
@@ -24,7 +24,7 @@ const TablePage = () => {
   const currentTableBill = tableList?.find((tab) => tab.title === tabletitle)
     ?.itens;
 
-  const totalBillAmount = CalculateBillAmount(currentTableBill);
+  const totalBillAmount = CalculateBillAmount(currentTableBill!);
   const [amountPaid, setAmountPaid] = useState(0);
   const [inputValue, setInputValue] = useState(0);
   const amountToBePaid = totalBillAmount - amountPaid;

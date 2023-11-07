@@ -1,0 +1,1 @@
+describe('Table Card Component', () => {});

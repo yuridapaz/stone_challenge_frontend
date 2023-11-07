@@ -3,24 +3,24 @@
     "title": "Mesa 1",
     "itens": [
       {
-        "nome": "Frango a passarinho",
-        "valor": 39.9,
-        "quantidade": 1
+        "name": "Frango a passarinho",
+        "price": 39.9,
+        "amount": 1
       },
       {
-        "nome": "Filé com fritas",
-        "valor": 59.9,
-        "quantidade": 1
+        "name": "Filé com fritas",
+        "price": 59.9,
+        "amount": 1
       },
       {
-        "nome": "Coca-Cola",
-        "valor": 5.9,
-        "quantidade": 4
+        "name": "Coca-Cola",
+        "price": 5.9,
+        "amount": 4
       },
       {
-        "nome": "Fritas",
-        "valor": 25.9,
-        "quantidade": 1
+        "name": "Fritas",
+        "price": 25.9,
+        "amount": 1
       }
     ]
   },
@@ -36,19 +36,19 @@
     "title": "Mesa 4",
     "itens": [
       {
-        "nome": "Rum Dose",
-        "valor": 7.9,
-        "quantidade": 18
+        "name": "Rum Dose",
+        "price": 7.9,
+        "amount": 18
       },
       {
-        "nome": "Coca-Cola",
-        "valor": 5.9,
-        "quantidade": 12
+        "name": "Coca-Cola",
+        "price": 5.9,
+        "amount": 12
       },
       {
-        "nome": "Fritas",
-        "valor": 25.9,
-        "quantidade": 4
+        "name": "Fritas",
+        "price": 25.9,
+        "amount": 4
       }
     ]
   },
@@ -56,9 +56,9 @@
     "title": "Mesa 5",
     "itens": [
       {
-        "nome": "Cerveja Original",
-        "valor": 10.9,
-        "quantidade": 12
+        "name": "Cerveja Original",
+        "price": 10.9,
+        "amount": 12
       }
     ]
   },
@@ -66,24 +66,24 @@
     "title": "Mesa 6",
     "itens": [
       {
-        "nome": "Fritas",
-        "valor": 25.9,
-        "quantidade": 2
+        "name": "Fritas",
+        "price": 25.9,
+        "amount": 2
       },
       {
-        "nome": "Kaiser",
-        "valor": 3.9,
-        "quantidade": 2
+        "name": "Kaiser",
+        "price": 3.9,
+        "amount": 2
       },
       {
-        "nome": "Guaracamp",
-        "valor": 4.9,
-        "quantidade": 2
+        "name": "Guaracamp",
+        "price": 4.9,
+        "amount": 2
       },
       {
-        "nome": "Cebola Frita",
-        "valor": 35.9,
-        "quantidade": 1
+        "name": "Cebola Frita",
+        "price": 35.9,
+        "amount": 1
       }
     ]
   },
@@ -95,24 +95,24 @@
     "title": "Mesa 8",
     "itens": [
       {
-        "nome": "Fritas",
-        "valor": 25.9,
-        "quantidade": 2
+        "name": "Fritas",
+        "price": 25.9,
+        "amount": 2
       },
       {
-        "nome": "Kaiser",
-        "valor": 3.9,
-        "quantidade": 2
+        "name": "Kaiser",
+        "price": 3.9,
+        "amount": 2
       },
       {
-        "nome": "Guaracamp",
-        "valor": 4.9,
-        "quantidade": 2
+        "name": "Guaracamp",
+        "price": 4.9,
+        "amount": 2
       },
       {
-        "nome": "Cebola Frita",
-        "valor": 35.9,
-        "quantidade": 1
+        "name": "Cebola Frita",
+        "price": 35.9,
+        "amount": 1
       }
     ]
   },
@@ -120,24 +120,24 @@
     "title": "Mesa 9",
     "itens": [
       {
-        "nome": "Fritas",
-        "valor": 25.9,
-        "quantidade": 2
+        "name": "Fritas",
+        "price": 25.9,
+        "amount": 2
       },
       {
-        "nome": "Kaiser",
-        "valor": 3.9,
-        "quantidade": 2
+        "name": "Kaiser",
+        "price": 3.9,
+        "amount": 2
       },
       {
-        "nome": "Guaracamp",
-        "valor": 4.9,
-        "quantidade": 2
+        "name": "Guaracamp",
+        "price": 4.9,
+        "amount": 2
       },
       {
-        "nome": "Cebola Frita",
-        "valor": 35.9,
-        "quantidade": 1
+        "name": "Cebola Frita",
+        "price": 35.9,
+        "amount": 1
       }
     ]
   },
@@ -149,24 +149,24 @@
     "title": "Mesa 11",
     "itens": [
       {
-        "nome": "Frango a passarinho",
-        "valor": 39.9,
-        "quantidade": 1
+        "name": "Frango a passarinho",
+        "price": 39.9,
+        "amount": 1
       },
       {
-        "nome": "Filé com fritas",
-        "valor": 59.9,
-        "quantidade": 1
+        "name": "Filé com fritas",
+        "price": 59.9,
+        "amount": 1
       },
       {
-        "nome": "Coca-Cola",
-        "valor": 5.9,
-        "quantidade": 4
+        "name": "Coca-Cola",
+        "price": 5.9,
+        "amount": 4
       },
       {
-        "nome": "Fritas",
-        "valor": 25.9,
-        "quantidade": 1
+        "name": "Fritas",
+        "price": 25.9,
+        "amount": 1
       }
     ]
   },
@@ -174,19 +174,19 @@
     "title": "Mesa 12",
     "itens": [
       {
-        "nome": "Rum Dose",
-        "valor": 7.9,
-        "quantidade": 18
+        "name": "Rum Dose",
+        "price": 7.9,
+        "amount": 18
       },
       {
-        "nome": "Coca-Cola",
-        "valor": 5.9,
-        "quantidade": 12
+        "name": "Coca-Cola",
+        "price": 5.9,
+        "amount": 12
       },
       {
-        "nome": "Fritas",
-        "valor": 25.9,
-        "quantidade": 4
+        "name": "Fritas",
+        "price": 25.9,
+        "amount": 4
       }
     ]
   }

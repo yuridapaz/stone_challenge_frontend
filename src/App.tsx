@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import RestaurantContextProvider from './contexts/RestaurantContext';
 import IndexPage from './pages/IndexPage';
@@ -9,8 +8,14 @@ function App() {
     <RestaurantContextProvider>
       <Router>
         <Routes>
-          <Route path='/' element={<IndexPage />} />
-          <Route path='/:tabletitle' element={<TablePage />} />
+          <Route
+            path='/'
+            element={<IndexPage />}
+          />
+          <Route
+            path='/:tabletitle'
+            element={<TablePage />}
+          />
         </Routes>
       </Router>
     </RestaurantContextProvider>

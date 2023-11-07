@@ -1,7 +1,7 @@
 const CalculateBillAmount = (tableOrderItens) => {
   return tableOrderItens
     .map((item) => {
-      return item.valor * item.quantidade;
+      return item.price * item.amount;
     })
     .reduce((acc, value) => {
       return acc + value;

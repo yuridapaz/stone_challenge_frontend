@@ -1,12 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import listoftables from '../listoftables.json';
-// eslint-disable-next-line import/no-unresolved
 import RefactoringTableList from '../utils/RefactoringTableList';
+import { ITable } from '../types/types';
 
-export const RestaurantContext = React.createContext({});
+export type RestaurantContextType = {
+  tableList: ITable[];
+  setTableList: (table: ITable[]) => void;
+};
 
-const RestaurantContextProvider = ({ children }) => {
-  const [tableList, setTableList] = useState(() => {
+export type Prop = {
+  children: React.ReactNode;
+};
+
+export const RestaurantContext =
+  React.createContext<RestaurantContextType | null>(null);
+
+const RestaurantContextProvider = ({ children }: Prop) => {
+  const [tableList, setTableList] = React.useState<ITable[]>(() => {
     const data = localStorage.getItem('restaurantTables');
     return data ? JSON.parse(data) : RefactoringTableList(listoftables);
   });

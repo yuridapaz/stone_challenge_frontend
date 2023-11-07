@@ -28,12 +28,12 @@ export const TableBillItem = ({ tabItem }) => {
   return (
     <TablePageBillItemStyled>
       <div className='name_div'>
-        <p> {tabItem.nome} </p>
+        <p> {tabItem.name} </p>
       </div>
       <div className='valores_div'>
-        <p>Qtd: {tabItem.quantidade} </p>
-        <p> R${tabItem.valor.toFixed(2)} </p>
-        <p> R${(tabItem.valor * tabItem.quantidade).toFixed(2)} </p>
+        <p>Qtd: {tabItem.amount} </p>
+        <p> R${tabItem.price.toFixed(2)} </p>
+        <p> R${(tabItem.price * tabItem.amount).toFixed(2)}</p>
       </div>
     </TablePageBillItemStyled>
   );

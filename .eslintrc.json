@@ -24,7 +24,8 @@
     "es6": true,
     "browser": true,
     "jest": true,
-    "node": true
+    "node": true,
+    "amd": true
   },
   "settings": {
     "react": {

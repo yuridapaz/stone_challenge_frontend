@@ -7,14 +7,19 @@ import {
   InputStyle,
 } from './IndexPage.styled';
 import { TableCard } from '../components/TableCard';
-import { RestaurantContext } from '../contexts/RestaurantContext';
+import {
+  RestaurantContext,
+  RestaurantContextType,
+} from '../contexts/RestaurantContext';
 
 function IndexPage() {
-  const { tableList } = React.useContext(RestaurantContext);
+  const { tableList } = React.useContext(
+    RestaurantContext
+  ) as RestaurantContextType;
 
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState<string>('');
 
-  const filteredTables = tableList.filter((table) =>
+  const filteredTables = tableList?.filter((table) =>
     table.title.toLowerCase().includes(query.toLocaleLowerCase())
   );
 
@@ -28,7 +33,7 @@ function IndexPage() {
         onChange={(e) => setQuery(e.target.value)}
       />
       <CardContainer>
-        {filteredTables.map((table, i) => {
+        {filteredTables?.map((table, i) => {
           return (
             <Link
               className='link_class'

@@ -31,7 +31,11 @@ const BottomCardDiv = styled.div`
   }
 `;
 
-const PaymentBottomCard = ({ children }) => {
+type Props = {
+  children: React.ReactNode;
+};
+
+const PaymentBottomCard = ({ children }: Props) => {
   return <BottomCardDiv>{children}</BottomCardDiv>;
 };
 

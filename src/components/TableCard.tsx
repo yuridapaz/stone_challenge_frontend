@@ -2,6 +2,7 @@
 import styled from 'styled-components';
 import { MdDinnerDining } from 'react-icons/md';
 import CalculateBillAmount from '../utils/CalculateBillAmount';
+import { ITable } from '../types/types';
 
 const TableCardStyled = styled.div`
   width: 180px;
@@ -62,13 +63,17 @@ const TableCardStyled = styled.div`
   }
 `;
 
-export const TableCard = ({ tab }) => {
+type Props = {
+  tab: ITable;
+};
+
+export const TableCard = ({ tab }: Props) => {
   return (
     <TableCardStyled tab={tab}>
       <div className='table_card_div'>
         <MdDinnerDining
           className={`table_card_icon ${
-            CalculateBillAmount(tab.itens) === 0 ? 'empty_bill' : ''
+            tab.itens.length === 0 ? 'empty_bill' : ''
           } `}
         />
         <h2 className='table_card_name'>{tab.title}</h2>
@@ -78,7 +83,7 @@ export const TableCard = ({ tab }) => {
 
         <h6
           className={`price_card_value ${
-            CalculateBillAmount(tab.itens) === 0 ? 'empty_bill' : ''
+            tab.itens.length === 0 ? 'empty_bill' : ''
           } `}
         >
           R$ {CalculateBillAmount(tab.itens).toFixed(2)}

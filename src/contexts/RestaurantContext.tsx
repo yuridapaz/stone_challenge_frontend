@@ -8,14 +8,14 @@ export type RestaurantContextType = {
   setTableList: (table: ITable[]) => void;
 };
 
-export type Prop = {
+export type Props = {
   children: React.ReactNode;
 };
 
 export const RestaurantContext =
   React.createContext<RestaurantContextType | null>(null);
 
-const RestaurantContextProvider = ({ children }: Prop) => {
+const RestaurantContextProvider = ({ children }: Props) => {
   const [tableList, setTableList] = React.useState<ITable[]>(() => {
     const data = localStorage.getItem('restaurantTables');
     return data ? JSON.parse(data) : RefactoringTableList(listoftables);

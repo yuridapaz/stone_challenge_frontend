@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { IBillItem } from '../types/types';
 
 export const TablePageBillItemStyled = styled.div`
   padding: 5px 0;
@@ -24,7 +25,11 @@ export const TablePageBillItemStyled = styled.div`
   }
 `;
 
-export const TableBillItem = ({ tabItem }) => {
+type Props = {
+  tabItem: IBillItem;
+};
+
+export const TableBillItem = ({ tabItem }: Props) => {
   return (
     <TablePageBillItemStyled>
       <div className='name_div'>

@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import PaymentBottomCard from '../components/PaymentBottomCard';
 import { TableBillItem } from '../components/TableBillItem';
-import { RestaurantContext } from '../contexts/RestaurantContext';
+import {
+  RestaurantContext,
+  RestaurantContextType,
+} from '../contexts/RestaurantContext';
 import { IoMdArrowBack } from 'react-icons/io';
 import {
   TableBillCard,
@@ -14,16 +17,19 @@ import CalculateBillAmount from '../utils/CalculateBillAmount';
 
 const TablePage = () => {
   // @ts-ignore
-  const { tableList } = React.useContext(RestaurantContext);
+  const { tableList } = React.useContext(
+    RestaurantContext
+  ) as RestaurantContextType;
   const { tabletitle } = useParams();
-  const currentTableBill = tableList.find((tab) => tab.title === tabletitle)['itens'];
+  const currentTableBill = tableList?.find((tab) => tab.title === tabletitle)
+    ?.itens;
 
   const totalBillAmount = CalculateBillAmount(currentTableBill);
   const [amountPaid, setAmountPaid] = useState(0);
   const [inputValue, setInputValue] = useState(0);
   const amountToBePaid = totalBillAmount - amountPaid;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
 
     if (amountPaid === totalBillAmount) {
@@ -45,12 +51,17 @@ const TablePage = () => {
         </Link>
         <h2 className='tablePage_header_title'>{tabletitle}</h2>
       </TablePageHeader>
-      {currentTableBill.length > 0 ? (
+      {currentTableBill!.length > 0 ? (
         <>
           <TablePageBillContainer>
             <TableBillCard>
-              {currentTableBill.map((tabItem, i) => {
-                return <TableBillItem tabItem={tabItem} key={i} />;
+              {currentTableBill?.map((tabItem, i) => {
+                return (
+                  <TableBillItem
+                    tabItem={tabItem}
+                    key={i}
+                  />
+                );
               })}
               <div className='payment_info_item'>
                 <p>Total a pagar:</p>
@@ -67,7 +78,10 @@ const TablePage = () => {
             </TableBillCard>
           </TablePageBillContainer>
           <PaymentBottomCard>
-            <form action='' onSubmit={handleSubmit}>
+            <form
+              action=''
+              onSubmit={handleSubmit}
+            >
               <input
                 type='number'
                 step='0.01'
@@ -76,7 +90,10 @@ const TablePage = () => {
                 onChange={(e) => setInputValue(Number(e.target.value))}
                 value={inputValue}
               />
-              <button type='submit' className='submit_button'>
+              <button
+                type='submit'
+                className='submit_button'
+              >
                 Adicionar Pagamento
               </button>
             </form>
